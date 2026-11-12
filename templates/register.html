@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register a Child - TalentFinder</title>
+</head>
+<body>
+
+    <h1>Child Registration</h1>
+
+    <form method="POST" action="/register">
+        <label>Child's Full Name:</label>
+        <input type="text" name="child_name" required>
+
+        <br><br>
+
+        <label>Age:</label>
+        <input type="number" name="age" min="1" max="18" required>
+
+        <br><br>
+
+        <label>Gender:</label>
+        <select name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+
+        <br><br>
+
+        <label>Talent Category:</label>
+        <select name="talent" required>
+            <option value="">Select Talent</option>
+            <option value="Singing">Singing</option>
+            <option value="Dancing">Dancing</option>
+            <option value="Acting">Acting</option>
+            <option value="Drawing">Drawing</option>
+            <option value="Sports">Sports</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <br><br>
+
+        <label>Parent/Guardian Name:</label>
+        <input type="text" name="parent_name" required>
+
+        <br><br>
+
+        <button type="submit">Register Child</button>
+
+    </form>
+
+    <br>
+
+    <a href="/">Back to Home</a>
+
+</body>
+</html>
