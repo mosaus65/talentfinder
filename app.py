@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request
 from database import initialize_db, save_child
+import sqlite3
 
 app = Flask(__name__)
 
 initialize_db()
+
 
 @app.route("/")
 def home():
@@ -30,10 +32,30 @@ def register():
         <p>Gender: {gender}</p>
         <p>Talent: {talent}</p>
         <p>Parent Name: {parent_name}</p>
-        <a href="/register">Register Another Child</a>
+        <a href="/dashboard">View Dashboard</a>
         """
 
     return render_template("register.html")
+
+
+@app.route("/dashboard")
+def dashboard():
+
+    connection = sqlite3.connect("talentfinder.db")
+
+    children = connection.execute(
+        "SELECT * FROM children"
+    ).fetchall()
+
+    connection.close()
+
+    total_children = len(children)
+
+    return render_template(
+        "dashboard.html",
+        children=children,
+        total_children=total_children
+    )
 
 
 if __name__ == "__main__":

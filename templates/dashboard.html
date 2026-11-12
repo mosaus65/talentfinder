@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TalentFinder Dashboard</title>
+</head>
+<body>
+
+    <h1>TalentFinder Admin Dashboard</h1>
+
+    <h2>Total Registered Children: {{ total_children }}</h2>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Child Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Talent</th>
+            <th>Parent Name</th>
+        </tr>
+
+        {% for child in children %}
+        <tr>
+            <td>{{ child[0] }}</td>
+            <td>{{ child[1] }}</td>
+            <td>{{ child[2] }}</td>
+            <td>{{ child[3] }}</td>
+            <td>{{ child[4] }}</td>
+            <td>{{ child[5] }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/">Back to Home</a>
+
+    <br><br>
+
+    <a href="/register">Register Another Child</a>
+
+</body>
+</html>
